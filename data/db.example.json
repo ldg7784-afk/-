@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "institutionName": "26] 고2 체육과 줄넘기 활동",
+  "institutionName": "26] 고2 체육과 줄넘기 활동 (축구 스타 리그)",
   "classes": [
     "201",
     "202",
@@ -13,7 +13,7 @@
   ],
   "purposeSetting": {
     "purpose": "TEACHER_ONLY",
-    "lastUpdated": "2026-10-28T00:00:00.000Z",
+    "lastUpdated": "2026-10-28T11:08:05.338Z",
     "updatedBy": "선생님",
     "description": "교사 단독 행정·업무용: 반별/날짜별 줄넘기 회수 여부 확인 및 기록"
   },
@@ -23,11 +23,2091 @@
       "classId": "201",
       "studentNum": 1,
       "studentNumber": "20101",
-      "name": "예시학생1",
-      "isPseudonym": false,
-      "createdAt": "2026-10-28T00:00:00.000Z"
+      "name": "손흥민",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.327Z"
+    },
+    {
+      "id": "std_20102",
+      "classId": "201",
+      "studentNum": 2,
+      "studentNumber": "20102",
+      "name": "박지성",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20103",
+      "classId": "201",
+      "studentNum": 3,
+      "studentNumber": "20103",
+      "name": "김민재",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20104",
+      "classId": "201",
+      "studentNum": 4,
+      "studentNumber": "20104",
+      "name": "이강인",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20105",
+      "classId": "201",
+      "studentNum": 5,
+      "studentNumber": "20105",
+      "name": "황희찬",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20106",
+      "classId": "201",
+      "studentNum": 6,
+      "studentNumber": "20106",
+      "name": "조규성",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20107",
+      "classId": "201",
+      "studentNum": 7,
+      "studentNumber": "20107",
+      "name": "기성용",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20108",
+      "classId": "201",
+      "studentNum": 8,
+      "studentNumber": "20108",
+      "name": "이청용",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20109",
+      "classId": "201",
+      "studentNum": 9,
+      "studentNumber": "20109",
+      "name": "구자철",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20110",
+      "classId": "201",
+      "studentNum": 10,
+      "studentNumber": "20110",
+      "name": "차범근",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20201",
+      "classId": "202",
+      "studentNum": 1,
+      "studentNumber": "20201",
+      "name": "리오넬 메시",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "std_20202",
+      "classId": "202",
+      "studentNum": 2,
+      "studentNumber": "20202",
+      "name": "크리스티아누 호날두",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20203",
+      "classId": "202",
+      "studentNum": 3,
+      "studentNumber": "20203",
+      "name": "킬리안 음바페",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20204",
+      "classId": "202",
+      "studentNum": 4,
+      "studentNumber": "20204",
+      "name": "엘링 홀란",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20205",
+      "classId": "202",
+      "studentNum": 5,
+      "studentNumber": "20205",
+      "name": "네이마르",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20206",
+      "classId": "202",
+      "studentNum": 6,
+      "studentNumber": "20206",
+      "name": "해리 케인",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20207",
+      "classId": "202",
+      "studentNum": 7,
+      "studentNumber": "20207",
+      "name": "로베르트 레반도프스키",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20208",
+      "classId": "202",
+      "studentNum": 8,
+      "studentNumber": "20208",
+      "name": "카림 벤제마",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20209",
+      "classId": "202",
+      "studentNum": 9,
+      "studentNumber": "20209",
+      "name": "루이스 수아레스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20210",
+      "classId": "202",
+      "studentNum": 10,
+      "studentNumber": "20210",
+      "name": "즐라탄 이브라히모비치",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20301",
+      "classId": "203",
+      "studentNum": 1,
+      "studentNumber": "20301",
+      "name": "케빈 더 브라위너",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20302",
+      "classId": "203",
+      "studentNum": 2,
+      "studentNumber": "20302",
+      "name": "루카 모드리치",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20303",
+      "classId": "203",
+      "studentNum": 3,
+      "studentNumber": "20303",
+      "name": "토니 크로스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20304",
+      "classId": "203",
+      "studentNum": 4,
+      "studentNumber": "20304",
+      "name": "주드 벨링엄",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20305",
+      "classId": "203",
+      "studentNum": 5,
+      "studentNumber": "20305",
+      "name": "안드레스 이니에스타",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20306",
+      "classId": "203",
+      "studentNum": 6,
+      "studentNumber": "20306",
+      "name": "사비 에르난데스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20307",
+      "classId": "203",
+      "studentNum": 7,
+      "studentNumber": "20307",
+      "name": "지네딘 지단",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20308",
+      "classId": "203",
+      "studentNum": 8,
+      "studentNumber": "20308",
+      "name": "안드레아 피를로",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20309",
+      "classId": "203",
+      "studentNum": 9,
+      "studentNumber": "20309",
+      "name": "은골로 캉테",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20310",
+      "classId": "203",
+      "studentNum": 10,
+      "studentNumber": "20310",
+      "name": "로드리",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20401",
+      "classId": "204",
+      "studentNum": 1,
+      "studentNumber": "20401",
+      "name": "버질 판 다이크",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20402",
+      "classId": "204",
+      "studentNum": 2,
+      "studentNumber": "20402",
+      "name": "세르히오 라모스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20403",
+      "classId": "204",
+      "studentNum": 3,
+      "studentNumber": "20403",
+      "name": "파올로 말디니",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20404",
+      "classId": "204",
+      "studentNum": 4,
+      "studentNumber": "20404",
+      "name": "카를레스 푸욜",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20405",
+      "classId": "204",
+      "studentNum": 5,
+      "studentNumber": "20405",
+      "name": "티아고 실바",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20406",
+      "classId": "204",
+      "studentNum": 6,
+      "studentNumber": "20406",
+      "name": "마누엘 노이어",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20407",
+      "classId": "204",
+      "studentNum": 7,
+      "studentNumber": "20407",
+      "name": "잔루이지 부폰",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20408",
+      "classId": "204",
+      "studentNum": 8,
+      "studentNumber": "20408",
+      "name": "티보 쿠르투아",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20409",
+      "classId": "204",
+      "studentNum": 9,
+      "studentNumber": "20409",
+      "name": "알리송 베케르",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20410",
+      "classId": "204",
+      "studentNum": 10,
+      "studentNumber": "20410",
+      "name": "이케르 카시야스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20501",
+      "classId": "205",
+      "studentNum": 1,
+      "studentNumber": "20501",
+      "name": "모하메드 살라",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20502",
+      "classId": "205",
+      "studentNum": 2,
+      "studentNumber": "20502",
+      "name": "부카요 사카",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20503",
+      "classId": "205",
+      "studentNum": 3,
+      "studentNumber": "20503",
+      "name": "필 포든",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20504",
+      "classId": "205",
+      "studentNum": 4,
+      "studentNumber": "20504",
+      "name": "마르틴 외데고르",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20505",
+      "classId": "205",
+      "studentNum": 5,
+      "studentNumber": "20505",
+      "name": "데클란 라이스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20506",
+      "classId": "205",
+      "studentNum": 6,
+      "studentNumber": "20506",
+      "name": "브루노 페르난데스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20507",
+      "classId": "205",
+      "studentNum": 7,
+      "studentNumber": "20507",
+      "name": "콜 파머",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20508",
+      "classId": "205",
+      "studentNum": 8,
+      "studentNumber": "20508",
+      "name": "트렌트 알렉산더 아놀드",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20509",
+      "classId": "205",
+      "studentNum": 9,
+      "studentNumber": "20509",
+      "name": "윌리엄 살리바",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20510",
+      "classId": "205",
+      "studentNum": 10,
+      "studentNumber": "20510",
+      "name": "베르나르두 실바",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20601",
+      "classId": "206",
+      "studentNum": 1,
+      "studentNumber": "20601",
+      "name": "비니시우스 주니오르",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20602",
+      "classId": "206",
+      "studentNum": 2,
+      "studentNumber": "20602",
+      "name": "호드리구",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20603",
+      "classId": "206",
+      "studentNum": 3,
+      "studentNumber": "20603",
+      "name": "라민 야말",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20604",
+      "classId": "206",
+      "studentNum": 4,
+      "studentNumber": "20604",
+      "name": "앙투안 그리즈만",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20605",
+      "classId": "206",
+      "studentNum": 5,
+      "studentNumber": "20605",
+      "name": "라우타로 마르티네스",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20606",
+      "classId": "206",
+      "studentNum": 6,
+      "studentNumber": "20606",
+      "name": "자말 무시알라",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20607",
+      "classId": "206",
+      "studentNum": 7,
+      "studentNumber": "20607",
+      "name": "플로리안 비르츠",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20608",
+      "classId": "206",
+      "studentNum": 8,
+      "studentNumber": "20608",
+      "name": "페데리코 발베르데",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20609",
+      "classId": "206",
+      "studentNum": 9,
+      "studentNumber": "20609",
+      "name": "하파엘 레앙",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20610",
+      "classId": "206",
+      "studentNum": 10,
+      "studentNumber": "20610",
+      "name": "흐비차 크바라츠헬리아",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20701",
+      "classId": "207",
+      "studentNum": 1,
+      "studentNumber": "20701",
+      "name": "안정환",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20702",
+      "classId": "207",
+      "studentNum": 2,
+      "studentNumber": "20702",
+      "name": "박주영",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20703",
+      "classId": "207",
+      "studentNum": 3,
+      "studentNumber": "20703",
+      "name": "이영표",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20704",
+      "classId": "207",
+      "studentNum": 4,
+      "studentNumber": "20704",
+      "name": "송종국",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20705",
+      "classId": "207",
+      "studentNum": 5,
+      "studentNumber": "20705",
+      "name": "설기현",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20706",
+      "classId": "207",
+      "studentNum": 6,
+      "studentNumber": "20706",
+      "name": "김남일",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20707",
+      "classId": "207",
+      "studentNum": 7,
+      "studentNumber": "20707",
+      "name": "이을용",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20708",
+      "classId": "207",
+      "studentNum": 8,
+      "studentNumber": "20708",
+      "name": "이운재",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20709",
+      "classId": "207",
+      "studentNum": 9,
+      "studentNumber": "20709",
+      "name": "김병지",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20710",
+      "classId": "207",
+      "studentNum": 10,
+      "studentNumber": "20710",
+      "name": "황선홍",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20801",
+      "classId": "208",
+      "studentNum": 1,
+      "studentNumber": "20801",
+      "name": "설영우",
+      "isPseudonym": true,
+      "note": "주장 (줄넘기 교구 관리 담당)",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20802",
+      "classId": "208",
+      "studentNum": 2,
+      "studentNumber": "20802",
+      "name": "이재성",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20803",
+      "classId": "208",
+      "studentNum": 3,
+      "studentNumber": "20803",
+      "name": "황인범",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20804",
+      "classId": "208",
+      "studentNum": 4,
+      "studentNumber": "20804",
+      "name": "정우영",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20805",
+      "classId": "208",
+      "studentNum": 5,
+      "studentNumber": "20805",
+      "name": "오현규",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20806",
+      "classId": "208",
+      "studentNum": 6,
+      "studentNumber": "20806",
+      "name": "양민혁",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20807",
+      "classId": "208",
+      "studentNum": 7,
+      "studentNumber": "20807",
+      "name": "배준호",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20808",
+      "classId": "208",
+      "studentNum": 8,
+      "studentNumber": "20808",
+      "name": "백승호",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20809",
+      "classId": "208",
+      "studentNum": 9,
+      "studentNumber": "20809",
+      "name": "조현우",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "std_20810",
+      "classId": "208",
+      "studentNum": 10,
+      "studentNumber": "20810",
+      "name": "김진수",
+      "isPseudonym": true,
+      "note": "",
+      "createdAt": "2026-10-28T11:08:05.338Z"
     }
   ],
-  "records": [],
-  "auditLogs": []
+  "records": [
+    {
+      "id": "rec_std_20101_2026-10-28",
+      "studentId": "std_20101",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20101_2026-10-27",
+      "studentId": "std_20101",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20102_2026-10-28",
+      "studentId": "std_20102",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20102_2026-10-27",
+      "studentId": "std_20102",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20103_2026-10-28",
+      "studentId": "std_20103",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20103_2026-10-27",
+      "studentId": "std_20103",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20104_2026-10-28",
+      "studentId": "std_20104",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20104_2026-10-27",
+      "studentId": "std_20104",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20105_2026-10-28",
+      "studentId": "std_20105",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20105_2026-10-27",
+      "studentId": "std_20105",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20106_2026-10-28",
+      "studentId": "std_20106",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20106_2026-10-27",
+      "studentId": "std_20106",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20107_2026-10-28",
+      "studentId": "std_20107",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20107_2026-10-27",
+      "studentId": "std_20107",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20108_2026-10-28",
+      "studentId": "std_20108",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20108_2026-10-27",
+      "studentId": "std_20108",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20109_2026-10-28",
+      "studentId": "std_20109",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20109_2026-10-27",
+      "studentId": "std_20109",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20110_2026-10-28",
+      "studentId": "std_20110",
+      "classId": "201",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20110_2026-10-27",
+      "studentId": "std_20110",
+      "classId": "201",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.337Z"
+    },
+    {
+      "id": "rec_std_20201_2026-10-28",
+      "studentId": "std_20201",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20201_2026-10-27",
+      "studentId": "std_20201",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20202_2026-10-28",
+      "studentId": "std_20202",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20202_2026-10-27",
+      "studentId": "std_20202",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20203_2026-10-28",
+      "studentId": "std_20203",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20203_2026-10-27",
+      "studentId": "std_20203",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20204_2026-10-28",
+      "studentId": "std_20204",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20204_2026-10-27",
+      "studentId": "std_20204",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20205_2026-10-28",
+      "studentId": "std_20205",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20205_2026-10-27",
+      "studentId": "std_20205",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20206_2026-10-28",
+      "studentId": "std_20206",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20206_2026-10-27",
+      "studentId": "std_20206",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20207_2026-10-28",
+      "studentId": "std_20207",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20207_2026-10-27",
+      "studentId": "std_20207",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20208_2026-10-28",
+      "studentId": "std_20208",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20208_2026-10-27",
+      "studentId": "std_20208",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20209_2026-10-28",
+      "studentId": "std_20209",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20209_2026-10-27",
+      "studentId": "std_20209",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20210_2026-10-28",
+      "studentId": "std_20210",
+      "classId": "202",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20210_2026-10-27",
+      "studentId": "std_20210",
+      "classId": "202",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20301_2026-10-28",
+      "studentId": "std_20301",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20301_2026-10-27",
+      "studentId": "std_20301",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20302_2026-10-28",
+      "studentId": "std_20302",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20302_2026-10-27",
+      "studentId": "std_20302",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20303_2026-10-28",
+      "studentId": "std_20303",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20303_2026-10-27",
+      "studentId": "std_20303",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20304_2026-10-28",
+      "studentId": "std_20304",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20304_2026-10-27",
+      "studentId": "std_20304",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20305_2026-10-28",
+      "studentId": "std_20305",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20305_2026-10-27",
+      "studentId": "std_20305",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20306_2026-10-28",
+      "studentId": "std_20306",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20306_2026-10-27",
+      "studentId": "std_20306",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20307_2026-10-28",
+      "studentId": "std_20307",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20307_2026-10-27",
+      "studentId": "std_20307",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20308_2026-10-28",
+      "studentId": "std_20308",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20308_2026-10-27",
+      "studentId": "std_20308",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20309_2026-10-28",
+      "studentId": "std_20309",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20309_2026-10-27",
+      "studentId": "std_20309",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20310_2026-10-28",
+      "studentId": "std_20310",
+      "classId": "203",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20310_2026-10-27",
+      "studentId": "std_20310",
+      "classId": "203",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20401_2026-10-28",
+      "studentId": "std_20401",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20401_2026-10-27",
+      "studentId": "std_20401",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20402_2026-10-28",
+      "studentId": "std_20402",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20402_2026-10-27",
+      "studentId": "std_20402",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20403_2026-10-28",
+      "studentId": "std_20403",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20403_2026-10-27",
+      "studentId": "std_20403",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20404_2026-10-28",
+      "studentId": "std_20404",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20404_2026-10-27",
+      "studentId": "std_20404",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20405_2026-10-28",
+      "studentId": "std_20405",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20405_2026-10-27",
+      "studentId": "std_20405",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20406_2026-10-28",
+      "studentId": "std_20406",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20406_2026-10-27",
+      "studentId": "std_20406",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20407_2026-10-28",
+      "studentId": "std_20407",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20407_2026-10-27",
+      "studentId": "std_20407",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20408_2026-10-28",
+      "studentId": "std_20408",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20408_2026-10-27",
+      "studentId": "std_20408",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20409_2026-10-28",
+      "studentId": "std_20409",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20409_2026-10-27",
+      "studentId": "std_20409",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20410_2026-10-28",
+      "studentId": "std_20410",
+      "classId": "204",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20410_2026-10-27",
+      "studentId": "std_20410",
+      "classId": "204",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20501_2026-10-28",
+      "studentId": "std_20501",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20501_2026-10-27",
+      "studentId": "std_20501",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20502_2026-10-28",
+      "studentId": "std_20502",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20502_2026-10-27",
+      "studentId": "std_20502",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20503_2026-10-28",
+      "studentId": "std_20503",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20503_2026-10-27",
+      "studentId": "std_20503",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20504_2026-10-28",
+      "studentId": "std_20504",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20504_2026-10-27",
+      "studentId": "std_20504",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20505_2026-10-28",
+      "studentId": "std_20505",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20505_2026-10-27",
+      "studentId": "std_20505",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20506_2026-10-28",
+      "studentId": "std_20506",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20506_2026-10-27",
+      "studentId": "std_20506",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20507_2026-10-28",
+      "studentId": "std_20507",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20507_2026-10-27",
+      "studentId": "std_20507",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20508_2026-10-28",
+      "studentId": "std_20508",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20508_2026-10-27",
+      "studentId": "std_20508",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20509_2026-10-28",
+      "studentId": "std_20509",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20509_2026-10-27",
+      "studentId": "std_20509",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20510_2026-10-28",
+      "studentId": "std_20510",
+      "classId": "205",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20510_2026-10-27",
+      "studentId": "std_20510",
+      "classId": "205",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20601_2026-10-28",
+      "studentId": "std_20601",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20601_2026-10-27",
+      "studentId": "std_20601",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20602_2026-10-28",
+      "studentId": "std_20602",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20602_2026-10-27",
+      "studentId": "std_20602",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20603_2026-10-28",
+      "studentId": "std_20603",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20603_2026-10-27",
+      "studentId": "std_20603",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20604_2026-10-28",
+      "studentId": "std_20604",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20604_2026-10-27",
+      "studentId": "std_20604",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20605_2026-10-28",
+      "studentId": "std_20605",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20605_2026-10-27",
+      "studentId": "std_20605",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20606_2026-10-28",
+      "studentId": "std_20606",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20606_2026-10-27",
+      "studentId": "std_20606",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20607_2026-10-28",
+      "studentId": "std_20607",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20607_2026-10-27",
+      "studentId": "std_20607",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20608_2026-10-28",
+      "studentId": "std_20608",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20608_2026-10-27",
+      "studentId": "std_20608",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20609_2026-10-28",
+      "studentId": "std_20609",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20609_2026-10-27",
+      "studentId": "std_20609",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20610_2026-10-28",
+      "studentId": "std_20610",
+      "classId": "206",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20610_2026-10-27",
+      "studentId": "std_20610",
+      "classId": "206",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20701_2026-10-28",
+      "studentId": "std_20701",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20701_2026-10-27",
+      "studentId": "std_20701",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20702_2026-10-28",
+      "studentId": "std_20702",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20702_2026-10-27",
+      "studentId": "std_20702",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20703_2026-10-28",
+      "studentId": "std_20703",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20703_2026-10-27",
+      "studentId": "std_20703",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20704_2026-10-28",
+      "studentId": "std_20704",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20704_2026-10-27",
+      "studentId": "std_20704",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20705_2026-10-28",
+      "studentId": "std_20705",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20705_2026-10-27",
+      "studentId": "std_20705",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20706_2026-10-28",
+      "studentId": "std_20706",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20706_2026-10-27",
+      "studentId": "std_20706",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20707_2026-10-28",
+      "studentId": "std_20707",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20707_2026-10-27",
+      "studentId": "std_20707",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20708_2026-10-28",
+      "studentId": "std_20708",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20708_2026-10-27",
+      "studentId": "std_20708",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20709_2026-10-28",
+      "studentId": "std_20709",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20709_2026-10-27",
+      "studentId": "std_20709",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20710_2026-10-28",
+      "studentId": "std_20710",
+      "classId": "207",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20710_2026-10-27",
+      "studentId": "std_20710",
+      "classId": "207",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20801_2026-10-28",
+      "studentId": "std_20801",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20801_2026-10-27",
+      "studentId": "std_20801",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20802_2026-10-28",
+      "studentId": "std_20802",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20802_2026-10-27",
+      "studentId": "std_20802",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20803_2026-10-28",
+      "studentId": "std_20803",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20803_2026-10-27",
+      "studentId": "std_20803",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20804_2026-10-28",
+      "studentId": "std_20804",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20804_2026-10-27",
+      "studentId": "std_20804",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20805_2026-10-28",
+      "studentId": "std_20805",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20805_2026-10-27",
+      "studentId": "std_20805",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20806_2026-10-28",
+      "studentId": "std_20806",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20806_2026-10-27",
+      "studentId": "std_20806",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20807_2026-10-28",
+      "studentId": "std_20807",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20807_2026-10-27",
+      "studentId": "std_20807",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20808_2026-10-28",
+      "studentId": "std_20808",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20808_2026-10-27",
+      "studentId": "std_20808",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20809_2026-10-28",
+      "studentId": "std_20809",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20809_2026-10-27",
+      "studentId": "std_20809",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20810_2026-10-28",
+      "studentId": "std_20810",
+      "classId": "208",
+      "date": "2026-10-28",
+      "returned": false,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    },
+    {
+      "id": "rec_std_20810_2026-10-27",
+      "studentId": "std_20810",
+      "classId": "208",
+      "date": "2026-10-27",
+      "returned": true,
+      "updatedAt": "2026-10-28T11:08:05.338Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log_init_1793185685338",
+      "timestamp": "2026-10-28T11:08:05.338Z",
+      "action": "INIT_ROSTER",
+      "details": "8개 반 80명 축구선수 명단 생성 (반별 10명, 중복 없음)",
+      "clientIp": "127.0.0.1"
+    }
+  ]
 }
