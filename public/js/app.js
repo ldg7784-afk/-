@@ -18,7 +18,8 @@
     classesMatrix: [],
     students: [],
     activeFilter: 'all',  // 'all', 'returned', 'pending'
-    searchQuery: ''
+    searchQuery: '',
+    breakdownMode: 'returned' // 'returned' or 'pending'
   };
 
   // -------------------------------------------------------------
@@ -56,6 +57,9 @@
     btnBatchReset: document.getElementById('btn-batch-reset'),
 
     // 요약 카드
+    cardClassSummary: document.getElementById('card-class-summary'),
+    cardClassPending: document.getElementById('card-class-pending'),
+    cardAllClasses: document.getElementById('card-all-classes'),
     summaryCardClassName: document.getElementById('summary-card-class-name'),
     summaryCardDateBadge: document.getElementById('summary-card-date-badge'),
     metricClassReturned: document.getElementById('metric-class-returned'),
@@ -71,6 +75,19 @@
     metricAllTotal: document.getElementById('metric-all-total'),
     summaryAllRateText: document.getElementById('summary-all-rate-text'),
     progressAllFill: document.getElementById('progress-all-fill'),
+
+    // 회수 / 미회수 명단 간략 보기 모달
+    modalStatusBreakdown: document.getElementById('modal-status-breakdown'),
+    statusBreakdownTitle: document.getElementById('status-breakdown-title'),
+    statusBreakdownBadge: document.getElementById('status-breakdown-badge'),
+    statusBreakdownSubtitle: document.getElementById('status-breakdown-subtitle'),
+    btnBreakdownTabReturned: document.getElementById('btn-breakdown-tab-returned'),
+    btnBreakdownTabPending: document.getElementById('btn-breakdown-tab-pending'),
+    breakdownCountReturned: document.getElementById('breakdown-count-returned'),
+    breakdownCountPending: document.getElementById('breakdown-count-pending'),
+    btnCopyBreakdownList: document.getElementById('btn-copy-breakdown-list'),
+    breakdownStudentsList: document.getElementById('breakdown-students-list'),
+    breakdownEmptyMsg: document.getElementById('breakdown-empty-msg'),
 
     // 입력 폼
     returnEntryForm: document.getElementById('return-entry-form'),
@@ -262,6 +279,11 @@
         loadStudentHistory(state.selectedStudentId);
       }
 
+      // 만약 회수/미회수 간략 명단 모달이 열려있다면 내부 목록도 함께 갱신
+      if (DOM.modalStatusBreakdown && DOM.modalStatusBreakdown.classList.contains('active')) {
+        renderBreakdownList(state.breakdownMode);
+      }
+
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -303,9 +325,10 @@
     const isAllActive = state.selectedClass === 'all';
     allBtn.className = `class-tab-btn ${isAllActive ? 'active' : ''}`;
     allBtn.style.minWidth = '110px';
+    const totalCountAll = state.classesMatrix.reduce((sum, c) => sum + (c.total || 0), 0);
     allBtn.innerHTML = `
       <span class="tab-title">전체 보기</span>
-      <span class="tab-badge">8개 학급 115명</span>
+      <span class="tab-badge">8개 학급 ${totalCountAll}명</span>
     `;
     allBtn.addEventListener('click', () => {
       state.selectedClass = 'all';
@@ -779,6 +802,218 @@
     await checkFirebaseStatus(true);
     showToast('Firebase 연결 상태를 다시 확인했습니다.', 'info');
   });
+
+  // -------------------------------------------------------------
+  // [11. 회수 현황 / 미회수 인원 클릭 시 간략 명단 모달 (⭐ 신규 기능)]
+  // -------------------------------------------------------------
+  function openStatusBreakdown(mode = 'returned') {
+    state.breakdownMode = mode;
+    openModal(DOM.modalStatusBreakdown);
+    renderBreakdownList(mode);
+  }
+
+  function renderBreakdownList(mode) {
+    if (!DOM.modalStatusBreakdown) return;
+    state.breakdownMode = mode;
+
+    const isReturned = mode === 'returned';
+
+    // 1) 탭 활성화 상태 동기화
+    if (isReturned) {
+      if (DOM.btnBreakdownTabReturned) DOM.btnBreakdownTabReturned.classList.add('active');
+      if (DOM.btnBreakdownTabPending) DOM.btnBreakdownTabPending.classList.remove('active');
+      const classTitle = state.selectedClass === 'all' ? '전체 학급' : `${state.selectedClass}반`;
+      if (DOM.statusBreakdownTitle) DOM.statusBreakdownTitle.textContent = `${classTitle} 줄넘기 회수 완료 명단`;
+      if (DOM.statusBreakdownBadge) DOM.statusBreakdownBadge.className = 'card-badge green';
+    } else {
+      if (DOM.btnBreakdownTabReturned) DOM.btnBreakdownTabReturned.classList.remove('active');
+      if (DOM.btnBreakdownTabPending) DOM.btnBreakdownTabPending.classList.add('active');
+      const classTitle = state.selectedClass === 'all' ? '전체 학급' : `${state.selectedClass}반`;
+      if (DOM.statusBreakdownTitle) DOM.statusBreakdownTitle.textContent = `${classTitle} 줄넘기 미회수 학생 명단`;
+      if (DOM.statusBreakdownBadge) DOM.statusBreakdownBadge.className = 'card-badge orange';
+    }
+
+    const currentClassText = state.selectedClass === 'all' ? '전체 학급' : `${state.selectedClass}반`;
+    if (DOM.statusBreakdownSubtitle) {
+      DOM.statusBreakdownSubtitle.textContent = `${currentClassText} · ${state.selectedDate} 기준 (총 ${state.students.length}명)`;
+    }
+
+    // 2) 회수 / 미회수 카운트 계산
+    const returnedStudents = state.students.filter(s => s.isReturned);
+    const pendingStudents = state.students.filter(s => !s.isReturned);
+
+    if (DOM.breakdownCountReturned) DOM.breakdownCountReturned.textContent = returnedStudents.length;
+    if (DOM.breakdownCountPending) DOM.breakdownCountPending.textContent = pendingStudents.length;
+
+    const listToDisplay = isReturned ? returnedStudents : pendingStudents;
+    if (DOM.statusBreakdownBadge) DOM.statusBreakdownBadge.textContent = `${listToDisplay.length}명`;
+
+    // 3) 학생 리스트 렌더링
+    if (DOM.breakdownStudentsList) {
+      DOM.breakdownStudentsList.innerHTML = '';
+
+      if (listToDisplay.length === 0) {
+        if (DOM.breakdownEmptyMsg) {
+          DOM.breakdownEmptyMsg.style.display = 'block';
+          const p = DOM.breakdownEmptyMsg.querySelector('p');
+          if (p) {
+            p.textContent = isReturned
+              ? '아직 줄넘기 회수가 완료된 학생이 없습니다.'
+              : '🎉 축하합니다! 모든 학생이 줄넘기 반납을 완료했습니다.';
+          }
+        }
+        return;
+      }
+
+      if (DOM.breakdownEmptyMsg) DOM.breakdownEmptyMsg.style.display = 'none';
+
+      listToDisplay.forEach(student => {
+        const item = document.createElement('div');
+        item.className = 'breakdown-student-item';
+
+        const classLabel = state.selectedClass === 'all' ? `${student.classId}반 ` : '';
+        const numLabel = `${student.studentNum}번`;
+
+        item.innerHTML = `
+          <div class="breakdown-student-left" title="클릭하여 ${escapeHtml(student.name)} 학생 상세 이력 보기">
+            <span class="student-num-badge">${classLabel}${numLabel}</span>
+            <div>
+              <div class="breakdown-student-name">${escapeHtml(student.name)}</div>
+              <div class="breakdown-student-num">학번: ${escapeHtml(student.studentNumber)}</div>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn-quick-toggle ${student.isReturned ? 'returned' : 'pending'}" style="min-width: 90px; padding: 5px 12px; font-size: 12px;" title="클릭하여 즉시 반납 상태 전환">
+              ${student.isReturned ? '✓ 반납 완료' : '⏳ 미회수'}
+            </button>
+          </div>
+        `;
+
+        // 왼쪽 학생 이름/번호 클릭 시 개인별 반납 이력 모달 팝업
+        const leftEl = item.querySelector('.breakdown-student-left');
+        if (leftEl) {
+          leftEl.addEventListener('click', () => {
+            openStudentHistory(student.id);
+          });
+        }
+
+        // 오른쪽 빠른 토글 버튼 클릭 시 즉시 반납 상태 토글
+        const toggleBtn = item.querySelector('.btn-quick-toggle');
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            await handleQuickToggle(student.id);
+          });
+        }
+
+        DOM.breakdownStudentsList.appendChild(item);
+      });
+    }
+  }
+
+  // 브레이크다운 모달 탭 클릭 리스너
+  if (DOM.btnBreakdownTabReturned) {
+    DOM.btnBreakdownTabReturned.addEventListener('click', () => {
+      renderBreakdownList('returned');
+    });
+  }
+  if (DOM.btnBreakdownTabPending) {
+    DOM.btnBreakdownTabPending.addEventListener('click', () => {
+      renderBreakdownList('pending');
+    });
+  }
+
+  // 텍스트 복사 헬퍼
+  function fallbackCopyText(text, titleLabel) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      showToast(`📋 ${titleLabel} 명단이 클립보드에 복사되었습니다!`, 'success');
+    } catch (err) {
+      showToast('명단 복사에 실패했습니다.', 'error');
+    }
+    document.body.removeChild(textarea);
+  }
+
+  // 명단 복사 버튼
+  if (DOM.btnCopyBreakdownList) {
+    DOM.btnCopyBreakdownList.addEventListener('click', () => {
+      const isReturned = state.breakdownMode === 'returned';
+      const targetList = state.students.filter(s => isReturned ? s.isReturned : !s.isReturned);
+      const classLabel = state.selectedClass === 'all' ? '고2 전체 학급' : `${state.selectedClass}반`;
+      const titleLabel = isReturned ? '회수 완료' : '미회수';
+
+      if (targetList.length === 0) {
+        showToast('복사할 학생 명단이 없습니다.', 'info');
+        return;
+      }
+
+      const namesStr = targetList.map(s => {
+        const prefix = state.selectedClass === 'all' ? `[${s.classId}반] ` : '';
+        return `${prefix}${s.studentNum}번 ${s.name}`;
+      }).join(', ');
+
+      const copyText = `[${classLabel} 줄넘기 ${titleLabel} 명단 (${targetList.length}명)]\n${namesStr}\n(기준일자: ${state.selectedDate})`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyText).then(() => {
+          showToast(`📋 ${titleLabel} 명단이 클립보드에 복사되었습니다!`, 'success');
+        }).catch(() => {
+          fallbackCopyText(copyText, titleLabel);
+        });
+      } else {
+        fallbackCopyText(copyText, titleLabel);
+      }
+    });
+  }
+
+  // 상단 요약 카드 클릭 이벤트 연결 (⭐ 회수 현황 & 미회수 인원 숫자 클릭 시 간략 명단 팝업)
+  if (DOM.cardClassSummary) {
+    DOM.cardClassSummary.addEventListener('click', () => {
+      openStatusBreakdown('returned');
+    });
+    DOM.cardClassSummary.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openStatusBreakdown('returned');
+      }
+    });
+  }
+
+  if (DOM.cardClassPending) {
+    DOM.cardClassPending.addEventListener('click', () => {
+      openStatusBreakdown('pending');
+    });
+    DOM.cardClassPending.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openStatusBreakdown('pending');
+      }
+    });
+  }
+
+  if (DOM.cardAllClasses) {
+    DOM.cardAllClasses.addEventListener('click', () => {
+      state.selectedClass = 'all';
+      refreshSummaryAndRoster().then(() => {
+        openStatusBreakdown('returned');
+      });
+    });
+    DOM.cardAllClasses.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        state.selectedClass = 'all';
+        refreshSummaryAndRoster().then(() => {
+          openStatusBreakdown('returned');
+        });
+      }
+    });
+  }
 
   // -------------------------------------------------------------
   // [12. 시작]

@@ -96,7 +96,7 @@
       <div class="summary-grid">
 
         <!-- 카드 1: 선택 학급 회수 현황 -->
-        <article class="summary-card" id="card-class-summary">
+        <article class="summary-card clickable" id="card-class-summary" role="button" tabindex="0" title="클릭하여 회수 완료 학생 명단 간략 보기">
           <div class="card-label-row">
             <span class="card-label" id="summary-card-class-name">201반 회수 현황</span>
             <span class="card-badge green" id="summary-card-date-badge">선택일</span>
@@ -109,10 +109,11 @@
           <div class="card-progress-bar">
             <div class="card-progress-fill progress-green" id="progress-class-fill" style="width: 0%;"></div>
           </div>
+          <div class="card-click-hint"><span>🔍</span> 클릭하여 완료자 명단 보기</div>
         </article>
 
         <!-- 카드 2: 선택 학급 미회수(대기) 학생 수 -->
-        <article class="summary-card" id="card-class-pending">
+        <article class="summary-card clickable" id="card-class-pending" role="button" tabindex="0" title="클릭하여 미회수 학생 명단 간략 보기">
           <div class="card-label-row">
             <span class="card-label" id="summary-card-pending-name">201반 미회수 학생</span>
             <span class="card-badge orange">회수 대기</span>
@@ -125,10 +126,11 @@
           <div class="card-progress-bar">
             <div class="card-progress-fill progress-orange" id="progress-pending-fill" style="width: 0%;"></div>
           </div>
+          <div class="card-click-hint" style="color: var(--color-warning-text);"><span>🔍</span> 클릭하여 미회수자 명단 보기</div>
         </article>
 
         <!-- 카드 3: 고2 전체 8개 반 총 회수 현황 -->
-        <article class="summary-card" id="card-all-classes">
+        <article class="summary-card clickable" id="card-all-classes" role="button" tabindex="0" title="클릭하여 전체 8개 반 현황 요약 보기">
           <div class="card-label-row">
             <span class="card-label">고2 전체 8개 반 회수 현황</span>
             <span class="card-badge blue" id="summary-card-all-badge">전체 80명</span>
@@ -141,6 +143,7 @@
           <div class="card-progress-bar">
             <div class="card-progress-fill progress-blue" id="progress-all-fill" style="width: 0%;"></div>
           </div>
+          <div class="card-click-hint"><span>🔍</span> 클릭하여 전체 현황 보기</div>
         </article>
 
       </div>
@@ -464,6 +467,56 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-secondary" data-close-modal="modal-audit">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 회수 / 미회수 명단 간략 보기 모달 (숫자/카드 클릭 시 팝업 ⭐) -->
+  <div class="modal-overlay" id="modal-status-breakdown" role="dialog" aria-modal="true" aria-labelledby="status-breakdown-title">
+    <div class="modal-container" style="max-width: 560px;">
+      <div class="modal-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h3 class="modal-title" id="status-breakdown-title" style="font-size: 18px;">회수 현황 명단</h3>
+            <span class="card-badge green" id="status-breakdown-badge">0명</span>
+          </div>
+          <p id="status-breakdown-subtitle" style="font-size: 12px; color: var(--color-ink-muted-48); margin-top: 2px;">
+            201반 · 2026-10-28 기준
+          </p>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-status-breakdown" aria-label="닫기">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding: 16px 22px;">
+        <!-- 상단 컨트롤: 완료/미회수 전환 탭 & 명단 텍스트 복사 버튼 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+          <div class="filter-pills" role="tablist">
+            <button type="button" class="filter-pill-btn active" id="btn-breakdown-tab-returned">
+              회수 완료 (<span id="breakdown-count-returned">0</span>)
+            </button>
+            <button type="button" class="filter-pill-btn" id="btn-breakdown-tab-pending">
+              미회수 (<span id="breakdown-count-pending">0</span>)
+            </button>
+          </div>
+          <button type="button" class="nav-btn" id="btn-copy-breakdown-list" title="메신저/알림장용 텍스트 복사" style="padding: 5px 12px; font-size: 12px;">
+            📋 명단 복사
+          </button>
+        </div>
+
+        <!-- 학생 리스트 컨테이너 -->
+        <div id="breakdown-students-list" style="max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
+          <!-- Javascript로 동적 렌더링 -->
+        </div>
+
+        <!-- 빈 상태 메시지 -->
+        <div id="breakdown-empty-msg" class="empty-state" style="display: none; padding: 24px 0;">
+          <p style="font-size: 14px; color: var(--color-ink-muted-48);">해당 학생이 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 12px; color: var(--color-ink-muted-48);">💡 이름을 누르면 학생 이력을 확인할 수 있습니다.</span>
+        <button type="button" class="btn-secondary" data-close-modal="modal-status-breakdown">닫기</button>
       </div>
     </div>
   </div>
