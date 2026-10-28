@@ -13,17 +13,23 @@ const PRIVACY_OFFICER_CONTACT = process.env.PRIVACY_OFFICER_CONTACT || 'pe_dept@
 const DATA_RETENTION_MONTHS = parseInt(process.env.DATA_RETENTION_MONTHS || '12', 10);
 const ALLOW_ANONYMOUS_STUDENT = process.env.ALLOW_ANONYMOUS_STUDENT !== 'false';
 
-// 디렉토리 및 데이터베이스 파일 경로
-const DATA_DIR = path.join(__dirname, 'data');
+// 디렉토리 및 데이터베이스 파일 경로 (Vercel 서버리스 호환)
+const os = require('os');
+const IS_VERCEL = process.env.VERCEL === '1' || !!process.env.VERCEL;
+const DATA_DIR = IS_VERCEL ? path.join(os.tmpdir(), 'data') : path.join(__dirname, 'data');
 const BACKUP_DIR = path.join(DATA_DIR, 'backups');
 const DB_FILE = path.join(DATA_DIR, 'db.json');
 
 // 디렉토리 초기화
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
-if (!fs.existsSync(BACKUP_DIR)) {
-  fs.mkdirSync(BACKUP_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+  if (!fs.existsSync(BACKUP_DIR)) {
+    fs.mkdirSync(BACKUP_DIR, { recursive: true });
+  }
+} catch (e) {
+  // 읽기 전용 환경 무시
 }
 
 // 오늘 날짜 포맷 함수 (YYYY-MM-DD, 한국 표준시 기준)
@@ -60,10 +66,17 @@ async function syncStudentToFirestore(student) {
 
 // 원자적 파일 저장 함수
 function saveDatabase(db) {
-  const tempFile = path.join(DATA_DIR, `db.tmp.${Date.now()}`);
-  const dataStr = JSON.stringify(db, null, 2);
-  fs.writeFileSync(tempFile, dataStr, 'utf8');
-  fs.renameSync(tempFile, DB_FILE);
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    const tempFile = path.join(DATA_DIR, `db.tmp.${Date.now()}`);
+    const dataStr = JSON.stringify(db, null, 2);
+    fs.writeFileSync(tempFile, dataStr, 'utf8');
+    fs.renameSync(tempFile, DB_FILE);
+  } catch (err) {
+    console.warn('로컬 파일 저장 알림 (서버리스 환경에서는 Firestore가 주 저장소로 동작합니다):', err.message);
+  }
 }
 
 // 데이터베이스 로드 함수
@@ -75,6 +88,15 @@ function loadDatabase() {
     } catch (err) {
       console.error('데이터베이스 파싱 에러:', err);
     }
+  }
+
+  // Vercel 배포 환경 초기 템플릿 로드 시도
+  const exampleFile = path.join(__dirname, 'data', 'db.example.json');
+  if (fs.existsSync(exampleFile)) {
+    try {
+      const raw = fs.readFileSync(exampleFile, 'utf8');
+      return JSON.parse(raw);
+    } catch (e) {}
   }
   // 기본 골격
   return {
@@ -629,12 +651,16 @@ app.post('/api/firebase/recheck', requireTeacherAuth, async (req, res) => {
   });
 });
 
-// 서버 기동
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`  [26] 고2 체육과 줄넘기 반납 관리 시스템 서버 실행`);
-  console.log(`  - 201반 ~ 208반 8개 학급 학생 명단 로드 완료 (${db.students.length}명)`);
-  console.log(`  - 접속 주소: http://localhost:${PORT}`);
-  console.log(`  - 교사용 기본 접근 코드: ${TEACHER_ACCESS_CODE}`);
-  console.log(`====================================================`);
-});
+// 서버 기동 (로컬 환경에서만 listen, Vercel에서는 모듈로 export)
+if (require.main === module || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`  [26] 고2 체육과 줄넘기 반납 관리 시스템 서버 실행`);
+    console.log(`  - 201반 ~ 208반 8개 학급 학생 명단 로드 완료 (${db.students.length}명)`);
+    console.log(`  - 접속 주소: http://localhost:${PORT}`);
+    console.log(`  - 교사용 기본 접근 코드: ${TEACHER_ACCESS_CODE}`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
