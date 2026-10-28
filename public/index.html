@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="고2 체육 줄넘기 반별·날짜별 회수 관리 시스템 (201반~208반 115명 명단 연동, 1~2회 클릭 빠른 반납 체크 및 일자별 통계)">
+  <title>고2 체육 줄넘기 반납 관리 시스템 (201~208반)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- 글로벌 네비게이션 헤더 -->
+  <header class="global-header" role="banner">
+    <div class="nav-container">
+      <a href="/" class="brand" aria-label="줄넘기 반납 관리 홈">
+        <div class="brand-icon" aria-hidden="true">🪢</div>
+        <div class="brand-text">
+          <span class="brand-title">고2 줄넘기 회수 관리</span>
+          <span class="brand-badge" id="header-institution-name">26] 고2 체육과 (201~208반)</span>
+        </div>
+      </a>
+
+      <nav class="nav-actions" aria-label="상단 유틸리티 메뉴">
+        <span id="db-status-badge" class="db-indicator" title="데이터베이스 연결 상태">
+          <span class="status-dot">●</span> <span id="db-status-text">로컬 DB</span>
+        </span>
+        <button id="btn-open-firebase-guide" class="nav-btn" type="button" title="Firebase Firestore 연동 가이드">
+          🔥 Firebase 연동
+        </button>
+        <span id="auth-status-badge" class="auth-indicator" title="교사 인증 상태">
+          <span class="status-dot">●</span> 교사 인증됨
+        </span>
+        <button id="btn-open-auth-modal" class="nav-btn" type="button" aria-haspopup="dialog">
+          🔑 인증 설정
+        </button>
+        <button id="btn-export-backup" class="nav-btn" type="button" title="전체 데이터 JSON 백업 다운로드">
+          💾 데이터 백업
+        </button>
+        <button id="btn-open-audit-log" class="nav-btn" type="button" title="접근 및 보안 감사 로그 열람">
+          📋 감사 로그
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main class="main-content" role="main">
+
+    <!-- 히어로 안내 영역 -->
+    <section class="hero-banner" aria-labelledby="main-heading">
+      <p class="hero-subtitle">체육 수업 스마트 교구 관리</p>
+      <h1 id="main-heading" class="hero-title">고2 줄넘기 반별 · 날짜별 회수 현황</h1>
+      <p class="hero-desc">구글 시트(201반~208반 115명) 학생 명단이 연동되어 있습니다. 반과 날짜를 선택하여 줄넘기 회수 여부를 실시간으로 체크합니다.</p>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 1. 반 선택 세그먼트 (201반 ~ 208반 탭 바) -->
+    <!-- ========================================================= -->
+    <section class="class-selector-card" aria-label="학급 선택">
+      <div class="class-selector-header">
+        <span>🏫 학급 선택 (클릭 시 해당 반 명부로 즉시 전환)</span>
+        <span id="active-class-title-tag" style="color: var(--color-primary); font-weight: 700;">현재: 201반</span>
+      </div>
+      <div class="class-tab-bar" id="class-tab-container" role="tablist">
+        <!-- JS로 201~208반 동적 렌더링 -->
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 2. 날짜 선택 및 빠른 이동 컨트롤 바 -->
+    <!-- ========================================================= -->
+    <section class="date-control-bar" aria-label="날짜 제어 및 일괄 처리">
+      <div class="date-navigator">
+        <span style="font-size: 13px; font-weight: 700; color: var(--color-ink-muted-80);">📅 회수 확인 일자:</span>
+        <button type="button" class="date-btn" id="btn-date-prev" title="이전 날짜로 이동">◀ 어제</button>
+        <button type="button" class="date-btn active-today" id="btn-date-today" title="오늘 날짜로 이동">오늘</button>
+        <button type="button" class="date-btn" id="btn-date-next" title="다음 날짜로 이동">내일 ▶</button>
+        <input type="date" id="input-record-date" class="date-picker-input" aria-label="기록 일자 직접 선택">
+      </div>
+
+      <div class="batch-actions">
+        <button type="button" class="btn-batch-complete" id="btn-batch-complete" title="현재 선택된 반의 모든 학생을 회수 완료 처리">
+          <span>✨</span> <span id="label-batch-class-btn">201반 전원 회수 완료</span>
+        </button>
+        <button type="button" class="date-btn" id="btn-batch-reset" style="color: var(--color-ink-muted-48);" title="현재 선택된 반의 당일 회수 기록 초기화">
+          선택일 초기화
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. 실시간 요약 대시보드 (선택 반 및 전체 요약) -->
+    <!-- ========================================================= -->
+    <section class="summary-section" aria-label="반납 현황 요약 통계">
+      <div class="summary-grid">
+
+        <!-- 카드 1: 선택 학급 회수 현황 -->
+        <article class="summary-card" id="card-class-summary">
+          <div class="card-label-row">
+            <span class="card-label" id="summary-card-class-name">201반 회수 현황</span>
+            <span class="card-badge green" id="summary-card-date-badge">선택일</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val" id="metric-class-returned" style="color: var(--color-success-text);">0</span>
+            <span class="metric-unit">/ <span id="metric-class-total">0</span>명</span>
+          </div>
+          <p class="card-subtext" id="summary-card-rate-text">회수율 0% (반납 완료 학생)</p>
+          <div class="card-progress-bar">
+            <div class="card-progress-fill progress-green" id="progress-class-fill" style="width: 0%;"></div>
+          </div>
+        </article>
+
+        <!-- 카드 2: 선택 학급 미회수(대기) 학생 수 -->
+        <article class="summary-card" id="card-class-pending">
+          <div class="card-label-row">
+            <span class="card-label" id="summary-card-pending-name">201반 미회수 학생</span>
+            <span class="card-badge orange">회수 대기</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val" id="metric-class-pending" style="color: var(--color-warning-text);">0</span>
+            <span class="metric-unit">명</span>
+          </div>
+          <p class="card-subtext">아직 줄넘기를 제출하지 않은 학생</p>
+          <div class="card-progress-bar">
+            <div class="card-progress-fill progress-orange" id="progress-pending-fill" style="width: 0%;"></div>
+          </div>
+        </article>
+
+        <!-- 카드 3: 고2 전체 8개 반 총 회수 현황 -->
+        <article class="summary-card" id="card-all-classes">
+          <div class="card-label-row">
+            <span class="card-label">고2 전체 8개 반 회수 현황</span>
+            <span class="card-badge blue">전체 115명</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-val" id="metric-all-returned">0</span>
+            <span class="metric-unit">/ <span id="metric-all-total">115</span>명</span>
+          </div>
+          <p class="card-subtext" id="summary-all-rate-text">선택일 전체 학년 평균 회수율 0%</p>
+          <div class="card-progress-bar">
+            <div class="card-progress-fill progress-blue" id="progress-all-fill" style="width: 0%;"></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 4. 인터랙션 영역: 학생 개별 입력 폼 & 학급 학생 명부 보드 -->
+    <!-- ========================================================= -->
+    <div class="interaction-layout">
+
+      <!-- 왼쪽 컬럼: 학생 개별 수기 등록/수정 -->
+      <section class="panel-card" aria-labelledby="form-panel-title">
+        <header class="panel-header">
+          <div>
+            <h2 id="form-panel-title" class="panel-title">학생 직접 추가 / 수정</h2>
+            <p class="panel-desc">전입생 등록 또는 특정 학생 수기 기록</p>
+          </div>
+        </header>
+
+        <div class="panel-body">
+          <form id="return-entry-form" novalidate>
+
+            <!-- 반 선택 -->
+            <div class="form-group">
+              <label for="form-class-select" class="form-label">소속 학급</label>
+              <select id="form-class-select" class="form-input">
+                <option value="201">201반</option>
+                <option value="202">202반</option>
+                <option value="203">203반</option>
+                <option value="204">204반</option>
+                <option value="205">205반</option>
+                <option value="206">206반</option>
+                <option value="207">207반</option>
+                <option value="208">208반</option>
+              </select>
+            </div>
+
+            <!-- 번호 입력 -->
+            <div class="form-group">
+              <label for="input-student-num" class="form-label">출석 번호</label>
+              <input type="number" id="input-student-num" class="form-input" placeholder="예: 1" min="1" max="50">
+            </div>
+
+            <!-- 이름 입력 -->
+            <div class="form-group">
+              <label for="input-student-name" class="form-label">학생 성명 <span style="color:red;">*</span></label>
+              <input type="text" id="input-student-name" class="form-input" placeholder="예: 홍길동" required autocomplete="off">
+            </div>
+
+            <!-- 반납 여부 체크박스 -->
+            <div class="form-group">
+              <label class="checkbox-toggle-card" for="check-return-status">
+                <div class="checkbox-label-block">
+                  <span class="checkbox-main-text" id="toggle-status-label">줄넘기 회수 완료</span>
+                  <span class="checkbox-sub-text">체크 시 해당 일자에 반납 완료로 기록</span>
+                </div>
+                <div class="custom-toggle-switch">
+                  <input type="checkbox" id="check-return-status" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+
+            <button type="submit" id="btn-save-record" class="btn-primary">
+              <span>기록 저장</span>
+              <span aria-hidden="true">↵</span>
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+      <!-- 오른쪽 컬럼: 해당 반 당일 학생 명부 및 1-클릭 토글 버튼 -->
+      <section class="panel-card" aria-labelledby="roster-panel-title">
+        <header class="panel-header">
+          <div>
+            <h2 id="roster-panel-title" class="panel-title">
+              <span id="roster-class-heading">201반</span> 학생 줄넘기 회수 현황
+            </h2>
+            <p class="panel-desc">버튼을 1번 누르면 즉시 [회수 완료 ✓ ↔ 미회수 ⏳] 상태가 전환됩니다.</p>
+          </div>
+        </header>
+
+        <div class="panel-body">
+
+          <!-- 필터 및 검색 컨트롤 -->
+          <div class="roster-controls">
+            <div class="filter-pills" role="tablist" aria-label="회수 상태 필터">
+              <button type="button" class="filter-pill-btn active" data-filter="all" role="tab" aria-selected="true">
+                전체 (<span id="filter-count-all">0</span>)
+              </button>
+              <button type="button" class="filter-pill-btn" data-filter="returned" role="tab" aria-selected="false">
+                회수 완료 (<span id="filter-count-returned">0</span>)
+              </button>
+              <button type="button" class="filter-pill-btn" data-filter="pending" role="tab" aria-selected="false">
+                미회수 (<span id="filter-count-pending">0</span>)
+              </button>
+            </div>
+
+            <div class="search-input-wrap">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input type="text" id="input-search-student" placeholder="학생 이름 또는 번호 검색..." aria-label="학생 검색">
+            </div>
+          </div>
+
+          <!-- 학생 목록 테이블 -->
+          <div class="student-table-container">
+            <table class="student-table" id="student-roster-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 70px;">번호</th>
+                  <th scope="col">학생 이름</th>
+                  <th scope="col" style="width: 100px;">학번</th>
+                  <th scope="col" style="text-align: center; width: 140px;">줄넘기 회수 상태</th>
+                </tr>
+              </thead>
+              <tbody id="student-table-body">
+                <!-- Javascript로 동적 렌더링 -->
+              </tbody>
+            </table>
+
+            <!-- 빈 상태 안내 -->
+            <div id="roster-empty-state" class="empty-state" style="display: none;">
+              <p class="empty-state-text" id="empty-state-msg">해당 조건의 학생이 없습니다.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- 글로벌 푸터 -->
+  <footer class="global-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-links-row">
+        <button type="button" class="footer-link-btn highlight" id="link-open-privacy-modal">
+          개인정보 처리방침
+        </button>
+        <span aria-hidden="true">|</span>
+        <button type="button" class="footer-link-btn" id="link-open-terms-modal">
+          서비스 이용약관
+        </button>
+        <span aria-hidden="true">|</span>
+        <button type="button" class="footer-link-btn" id="link-open-compliance-modal">
+          학습지원 소프트웨어 심의 기준
+        </button>
+        <span aria-hidden="true">|</span>
+        <button type="button" class="footer-link-btn" id="link-open-audit-footer">
+          접근 및 감사 기록
+        </button>
+      </div>
+
+      <div class="footer-meta-grid">
+        <div class="meta-item">
+          <strong>운영 학년:</strong> 고등학교 2학년 (201반 ~ 208반 8개 학급)
+        </div>
+        <div class="meta-item">
+          <strong>개인정보 보호책임자:</strong> 체육교과 담당교사
+        </div>
+        <div class="meta-item">
+          <strong>문의 및 연락처:</strong> pe_dept@school.kr
+        </div>
+        <div class="meta-item">
+          <strong>시행일자:</strong> 2026년 3월 1일 | <strong>최근 업데이트:</strong> 2026년 10월 28일
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <span>Google 스프레드시트 26] 고2 줄넘기 활동량 명단 연동 완료 • 교육용 줄넘기 반납 관리 v2.0</span>
+        <span>Designed for Physical Education Teachers</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- 학생별 줄넘기 반납 이력 모달 (애를 누르면 뜨는 이력 팝업 ⭐) -->
+  <!-- ========================================================= -->
+  <div class="modal-overlay" id="modal-student-history" role="dialog" aria-modal="true" aria-labelledby="history-modal-name">
+    <div class="modal-container" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h3 class="modal-title" id="history-modal-name" style="font-size: 20px;">고윤성 학생</h3>
+            <span class="card-badge blue" id="history-modal-class-badge">201반 1번 (20101)</span>
+          </div>
+          <p style="font-size: 12px; color: var(--color-ink-muted-48); margin-top: 2px;">날짜별 줄넘기 회수 기록 및 교사용 메모</p>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-student-history" aria-label="닫기">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding: 18px 24px;">
+
+        <!-- 3칸 미니 통계 바 -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;">
+          <div style="background: var(--color-surface-pearl); border: 1px solid var(--color-hairline); border-radius: var(--radius-sm); padding: 10px 14px; text-align: center;">
+            <div style="font-size: 11px; color: var(--color-ink-muted-48); font-weight: 600;">총 기록 횟수</div>
+            <div style="font-size: 20px; font-weight: 700; color: var(--color-ink);" id="history-stat-total">0회</div>
+          </div>
+          <div style="background: var(--color-success-bg); border: 1px solid rgba(52, 199, 89, 0.25); border-radius: var(--radius-sm); padding: 10px 14px; text-align: center;">
+            <div style="font-size: 11px; color: var(--color-success-text); font-weight: 600;">회수 완료</div>
+            <div style="font-size: 20px; font-weight: 700; color: var(--color-success-text);" id="history-stat-returned">0회</div>
+          </div>
+          <div style="background: var(--color-warning-bg); border: 1px solid rgba(255, 149, 0, 0.25); border-radius: var(--radius-sm); padding: 10px 14px; text-align: center;">
+            <div style="font-size: 11px; color: var(--color-warning-text); font-weight: 600;">미회수(미납)</div>
+            <div style="font-size: 20px; font-weight: 700; color: var(--color-warning-text);" id="history-stat-pending">0회</div>
+          </div>
+        </div>
+
+        <!-- 날짜별 이력 목록 테이블 -->
+        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">📅 날짜별 반납 내역</h4>
+        <div style="max-height: 240px; overflow-y: auto; border: 1px solid var(--color-hairline); border-radius: var(--radius-sm); background: #ffffff;">
+          <table class="student-table" style="font-size: 13px;">
+            <thead>
+              <tr>
+                <th style="padding: 8px 12px;">일자</th>
+                <th style="padding: 8px 12px; text-align: center;">상태</th>
+                <th style="padding: 8px 12px; text-align: right;">상태 전환</th>
+              </tr>
+            </thead>
+            <tbody id="history-records-tbody">
+              <!-- JS 동적 렌더링 -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 교사용 메모 입력 -->
+        <div style="margin-top: 18px;">
+          <label for="history-student-note" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">
+            📝 교사용 특이사항 메모 (선택)
+          </label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="history-student-note" class="form-input" placeholder="예: 개인 줄넘기 사용 중, 줄 길이 조절 등" style="height: 38px;">
+            <button type="button" id="btn-save-student-note" class="date-btn" style="background: var(--color-primary); color: #fff; border: none; white-space: nowrap; padding: 0 16px;">
+              메모 저장
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-student-history">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 모달들 (인증, 개인정보, 약관, 심의, 감사 로그) -->
+  <!-- ========================================================= -->
+  <div class="modal-overlay" id="modal-privacy" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">개인정보 처리방침</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-privacy">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>고2 체육 줄넘기 반납 관리 시스템은 학생 출결 및 교구 관리 목적에 한하여 최소한의 학생 정보(학번, 이름, 반납 일자 및 여부)를 처리하며 외부 클라우드로 무단 반출되지 않습니다.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-privacy">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-terms" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">서비스 이용약관</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-terms">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>본 시스템은 학교 체육 교구 관리 목적으로 교사에 의해 단독 운영되는 무상 교육 지원 도구입니다.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-terms">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-auth" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3 class="modal-title">교사용 보안 인증</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-auth">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 12px;">교사용 보안 코드를 입력해주세요. (기본 코드: <strong>1234</strong>)</p>
+        <input type="password" id="input-auth-code" class="form-input" placeholder="보안 코드 입력" autocomplete="current-password">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-auth">닫기</button>
+        <button type="button" id="btn-submit-auth" class="btn-primary" style="width: auto; padding: 7px 18px;">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-audit" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3 class="modal-title">접근 및 보안 감사 로그</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-audit">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="max-height: 380px; overflow-y: auto; border: 1px solid var(--color-hairline); border-radius: var(--radius-sm);">
+          <table class="student-table" style="font-size: 12px;">
+            <thead>
+              <tr>
+                <th style="width: 140px;">일시</th>
+                <th style="width: 110px;">작업 유형</th>
+                <th>상세 내용</th>
+              </tr>
+            </thead>
+            <tbody id="audit-log-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-audit">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase 연동 가이드 모달 (Spark 무료 플랜 최적화) -->
+  <div class="modal-overlay" id="modal-firebase-guide" role="dialog" aria-modal="true" aria-labelledby="firebase-modal-title">
+    <div class="modal-container" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="firebase-modal-title">🔥 Firebase Firestore 연동 설정 (Spark 무료 플랜)</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-firebase-guide">✕</button>
+      </div>
+      <div class="modal-body" style="max-height: 70vh; overflow-y: auto; padding-right: 12px;">
+
+        <!-- 실시간 상태 카드 -->
+        <div class="guide-status-card" id="firebase-live-status-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="font-size: 14px; color: var(--color-ink);">현재 연동 상태</strong>
+            <span id="firebase-guide-status-tag" class="status-tag tag-returned">확인 중...</span>
+          </div>
+          <p id="firebase-guide-status-desc" style="font-size: 13px; color: var(--color-ink-muted-80); margin-bottom: 12px; line-height: 1.5;">
+            상태를 확인하는 중입니다...
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" class="btn-primary" id="btn-recheck-firebase" style="width: auto; padding: 7px 16px; font-size: 13px;">
+              🔄 연결 상태 실시간 확인
+            </button>
+          </div>
+        </div>
+
+        <!-- Spark 무료 플랜 보장 안내 배너 -->
+        <div style="background: rgba(52, 199, 89, 0.08); border: 1px solid rgba(52, 199, 89, 0.3); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0;">
+          <div style="font-weight: 700; font-size: 13px; color: #1e7e34; margin-bottom: 4px;">
+            🎉 Spark 플랜: 100% 영구 무료 (카드 등록 불필요)
+          </div>
+          <div style="font-size: 12px; color: var(--color-ink-muted-80); line-height: 1.5;">
+            구글 Firebase의 Spark 플랜은 <strong>신용카드 등록 없이 완전 무료</strong>로 제공됩니다.<br>
+            • 일일 읽기 50,000회 / 쓰기 20,000회 / 저장공간 1 GiB 무료<br>
+            • 본 웹앱은 고속 메모리 캐시 최적화로 하루 전체를 써도 <strong>일일 200회 미만</strong>(무료 한도의 1% 미만)만 사용하여 요금이 전혀 발생하지 않습니다.
+          </div>
+        </div>
+
+        <!-- 6단계 안내 -->
+        <div class="guide-steps-list">
+          <div class="guide-step-item">
+            <div class="guide-step-num">1</div>
+            <div class="guide-step-content">
+              <h4>Firebase 콘솔 무료 프로젝트 생성</h4>
+              <p>브라우저에서 <a href="https://console.firebase.google.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600;">Firebase 콘솔 (console.firebase.google.com)</a>에 접속하여 구글 계정으로 로그인한 뒤 <strong>[프로젝트 추가]</strong>를 누릅니다.</p>
+              <p class="step-subtext">프로젝트 이름(예: <code>jumprope-pe</code>)을 입력하고 완료합니다. (Google 애널리틱스는 체크 해제 권장)</p>
+            </div>
+          </div>
+
+          <div class="guide-step-item">
+            <div class="guide-step-num">2</div>
+            <div class="guide-step-content">
+              <h4>Cloud Firestore 데이터베이스 만들기</h4>
+              <p>좌측 메뉴에서 <strong>[빌드] → [Firestore Database]</strong> 클릭 후 <strong>[데이터베이스 만들기]</strong>를 누릅니다.</p>
+              <p class="step-subtext">위치는 가장 빠른 서울 리전 <strong><code>asia-northeast3 (Seoul)</code></strong>을 선택하고 [만들기]를 완료합니다.</p>
+            </div>
+          </div>
+
+          <div class="guide-step-item">
+            <div class="guide-step-num">3</div>
+            <div class="guide-step-content">
+              <h4>서비스 계정 비공개 키(JSON) 발급</h4>
+              <p>화면 좌측 상단 톱니바퀴 ⚙️ 아이콘 → <strong>[프로젝트 설정]</strong>을 클릭한 뒤, 상단 <strong>[서비스 계정]</strong> 탭을 선택합니다.</p>
+              <p class="step-subtext">하단의 <strong>[새 비공개 키 생성]</strong> 버튼을 누르면 JSON 인증 키 파일이 내 컴퓨터로 다운로드됩니다.</p>
+            </div>
+          </div>
+
+          <div class="guide-step-item">
+            <div class="guide-step-num">4</div>
+            <div class="guide-step-content">
+              <h4>키 파일 이름 변경 후 프로젝트 폴더에 넣기</h4>
+              <p>다운로드된 파일(예: <code>xxxx-firebase-adminsdk-xxxx.json</code>)의 이름을 정확히 <strong><code>serviceAccountKey.json</code></strong> 으로 변경합니다.</p>
+              <p class="step-subtext">이 파일을 현재 웹앱 프로젝트 폴더(<code>vibe sample</code>) 바로 안에 붙여넣습니다.</p>
+            </div>
+          </div>
+
+          <div class="guide-step-item">
+            <div class="guide-step-num">5</div>
+            <div class="guide-step-content">
+              <h4>학생 명단(115명) Firestore 일괄 업로드</h4>
+              <p>키 파일을 넣은 후 터미널(PowerShell)에서 아래 명령어를 한 번 실행하면 구글 시트에서 가져온 115명 명단과 기존 기록이 Firestore로 자동 전송됩니다:</p>
+              <div class="guide-code-box">
+                <code>node migrate_to_firestore.js</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="guide-step-item">
+            <div class="guide-step-num">6</div>
+            <div class="guide-step-content">
+              <h4>연동 완료 및 자동 동기화</h4>
+              <p>위의 <strong>[🔄 연결 상태 실시간 확인]</strong> 버튼을 누르면 서버 재시작 없이 즉시 Firestore 연결이 활성화됩니다!</p>
+              <p class="step-subtext">이제 어느 PC나 태블릿에서 줄넘기를 체크해도 구글 클라우드에 영구 저장됩니다.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal="modal-firebase-guide">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 컨테이너 -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

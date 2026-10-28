@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "institutionName": "26] 고2 체육과 줄넘기 활동",
+  "classes": [
+    "201",
+    "202",
+    "203",
+    "204",
+    "205",
+    "206",
+    "207",
+    "208"
+  ],
+  "purposeSetting": {
+    "purpose": "TEACHER_ONLY",
+    "lastUpdated": "2026-10-28T00:00:00.000Z",
+    "updatedBy": "선생님",
+    "description": "교사 단독 행정·업무용: 반별/날짜별 줄넘기 회수 여부 확인 및 기록"
+  },
+  "students": [
+    {
+      "id": "std_20101",
+      "classId": "201",
+      "studentNum": 1,
+      "studentNumber": "20101",
+      "name": "예시학생1",
+      "isPseudonym": false,
+      "createdAt": "2026-10-28T00:00:00.000Z"
+    }
+  ],
+  "records": [],
+  "auditLogs": []
+}

@@ -1,0 +1,24 @@
+{
+  "name": "jumprope-return-manager",
+  "version": "1.0.0",
+  "description": "교사용 줄넘기 반납 관리 웹앱 (Apple 스타일 디자인, 개인정보보호 및 심의대응 준수)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "jumprope",
+    "school",
+    "physical-education",
+    "teacher",
+    "return-manager"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^14.5.0"
+  }
+}

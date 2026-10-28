@@ -1,0 +1,72 @@
+# ====================================================================
+# [1] 의존성 패키지 (Dependencies)
+# ====================================================================
+node_modules/
+package-lock.json
+
+# ====================================================================
+# [2] 환경변수 및 보안 비밀키 (Secrets & Environment Variables)
+# ====================================================================
+# 로컬 환경변수 파일 (보안 코드, 인증 정보 등)
+.env
+.env.*
+*.env.local
+!.env.example
+
+# Firebase & Google Cloud 서비스 계정 키 및 인증서 (절대 유출 금지)
+serviceAccountKey*.json
+service-account*.json
+firebase-key*.json
+firebase-service-account*.json
+*firebase*.json
+*adminsdk*.json
+client_secret*.json
+credentials.json
+*.pem
+*.key
+*.p12
+
+# ====================================================================
+# [3] 학생 개인정보 및 실데이터 (Student Personal Data & Databases)
+# ====================================================================
+# 실제 학생 명단, 학번, 출결/반납 기록, 교사 메모 등이 포함된 실데이터
+data/db.json
+data/classes_data.json
+data/db.tmp.*
+data/*.tmp
+data/*.bak
+
+# 백업 파일 및 감사 기록 (디렉토리 구조 유지용 .gitkeep 제외)
+data/backups/*
+!data/backups/.gitkeep
+
+# 예시 템플릿(db.example.json)을 제외한 기타 데이터 파일 차단
+data/*.json
+!data/db.example.json
+
+# ====================================================================
+# [4] 스크래치 및 임시 작업 스크립트 (Scratch Scripts)
+# ====================================================================
+scratch_*.js
+scratch/
+tmp/
+temp/
+
+# ====================================================================
+# [5] 로그 및 디버깅 파일 (Logs & Debugging)
+# ====================================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ====================================================================
+# [6] OS 및 IDE 개발도구 설정 파일 (System & Editor Files)
+# ====================================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+.playwright-mcp/
