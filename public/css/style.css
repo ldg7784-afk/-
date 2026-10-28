@@ -760,6 +760,7 @@ input:checked + .toggle-slider:before {
 
 .student-table {
   width: 100%;
+  min-width: 520px;
   border-collapse: collapse;
   text-align: left;
   font-size: 14px;
@@ -773,12 +774,14 @@ input:checked + .toggle-slider:before {
   text-transform: uppercase;
   padding: 10px 14px;
   border-bottom: 1px solid var(--color-hairline);
+  white-space: nowrap;
 }
 
 .student-table td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--color-divider-soft);
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .student-table tr:last-child td {
@@ -790,13 +793,21 @@ input:checked + .toggle-slider:before {
 }
 
 .student-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-weight: 700;
   background: var(--color-canvas-parchment);
-  padding: 3px 8px;
+  border: 1px solid var(--color-hairline);
+  padding: 4px 10px;
   border-radius: var(--radius-xs);
   font-size: 13px;
-  color: var(--color-ink-muted-80);
+  color: var(--color-ink);
+  min-width: 52px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .student-name-btn {
@@ -808,9 +819,10 @@ input:checked + .toggle-slider:before {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-family: inherit;
   text-align: left;
+  white-space: nowrap;
   transition: all 0.15s ease;
 }
 
@@ -829,8 +841,9 @@ input:checked + .toggle-slider:before {
   color: var(--color-primary);
   background: rgba(0, 102, 204, 0.08);
   border: 1px solid rgba(0, 102, 204, 0.2);
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: var(--radius-pill);
+  white-space: nowrap;
   transition: all 0.15s ease;
 }
 
@@ -842,6 +855,7 @@ input:checked + .toggle-slider:before {
 .student-name-text {
   font-weight: 600;
   font-size: 15px;
+  white-space: nowrap;
 }
 
 .class-sub-badge {
@@ -851,6 +865,7 @@ input:checked + .toggle-slider:before {
   padding: 2px 6px;
   border-radius: var(--radius-xs);
   margin-left: 6px;
+  white-space: nowrap;
 }
 
 /* 빠른 1-클릭 버튼 */
@@ -867,7 +882,8 @@ input:checked + .toggle-slider:before {
   border: 1px solid transparent;
   transition: all 0.15s ease;
   user-select: none;
-  min-width: 105px;
+  min-width: 110px;
+  white-space: nowrap;
 }
 
 .btn-quick-toggle:active {

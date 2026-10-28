@@ -440,11 +440,13 @@
 
       // 1) 번호 열 (클릭 시 이력 열기)
       const tdNum = document.createElement('td');
+      tdNum.style.whiteSpace = 'nowrap';
       tdNum.innerHTML = `<span class="student-num-badge" style="cursor: pointer;" title="클릭하여 ${escapeHtml(student.name)} 학생 이력 보기">${student.studentNum}번</span>`;
       tdNum.addEventListener('click', () => openStudentHistory(student.id));
 
       // 2) 학생 이름 열 (클릭 시 이력 팝업 ⭐)
       const tdName = document.createElement('td');
+      tdName.style.whiteSpace = 'nowrap';
       const nameBtn = document.createElement('button');
       nameBtn.type = 'button';
       nameBtn.className = 'student-name-btn';
@@ -459,12 +461,14 @@
 
       // 3) 학번 열
       const tdFullNum = document.createElement('td');
+      tdFullNum.style.whiteSpace = 'nowrap';
       tdFullNum.style.fontFamily = 'monospace';
       tdFullNum.style.color = 'var(--color-ink-muted-48)';
       tdFullNum.textContent = student.studentNumber;
 
       // 4) 줄넘기 회수 상태 열 (1-클릭 토글 버튼)
       const tdStatus = document.createElement('td');
+      tdStatus.style.whiteSpace = 'nowrap';
       tdStatus.style.textAlign = 'center';
       const isRet = student.returnedOnDate;
       const toggleBtn = document.createElement('button');
